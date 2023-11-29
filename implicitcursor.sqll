@@ -1,0 +1,13 @@
+declare
+ total_rows number;
+BEGIN
+UPDATE emploe set salary = salary+500;
+if sql% notfound THEN
+DBMS_OUTPUT.PUT_LINE('no emploee selected');
+elsif sql% found THEN
+total_rows:=sql%rowcount;
+DBMS_OUTPUT.PUT_LINE(total_rows||'employee selected');
+end if;
+end;
+/
+select * from emploe;
